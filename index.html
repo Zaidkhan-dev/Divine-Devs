@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divine Devs | Modern Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              background: '#0a0a0a',
+              surface: '#121212',
+              primary: '#6366f1',
+              secondary: '#94a3b8',
+              accent: '#38bdf8',
+            },
+            animation: {
+              'spin-slow': 'spin 20s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'liquid': 'liquid 15s ease-in-out infinite',
+              'sheen': 'sheen 4s infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              liquid: {
+                '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+                '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+              },
+              sheen: {
+                '0%': { transform: 'translateX(-200%) translateY(-200%) rotate(45deg)' },
+                '100%': { transform: 'translateX(200%) translateY(200%) rotate(45deg)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      body {
+        cursor: none;
+      }
+      @media (max-width: 768px) {
+        body { cursor: auto; }
+      }
+      
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px) saturate(160%);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Liquid Sheen Overlay */
+      .glass-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 45%,
+          rgba(255, 255, 255, 0.05) 50%,
+          transparent 55%
+        );
+        transform: rotate(45deg);
+        animation: sheen 6s infinite linear;
+        pointer-events: none;
+      }
+
+      .liquid-distortion {
+        filter: url(#liquid-filter);
+      }
+
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .transform-style-3d {
+        transform-style: preserve-3d;
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/Divine-Devs/assets/index-BMTbtDqi.js"></script>
+</head>
+  <body class="bg-background text-slate-300 antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white">
+    <!-- Hidden SVG Filter for Liquid Distortion -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+      <defs>
+        <filter id="liquid-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" seed="1" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" />
+        </filter>
+      </defs>
+    </svg>
+    
+    <div id="root"></div>
+</body>
+</html>
